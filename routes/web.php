@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['role:Administrador']],function(){
+
+    //TIPO DE USUARIO
+    Route::get('/tipo_usuario', ['as'=>'administrador.tipo_usuario','uses'=>'TipoUsuarioController@index']);
+
+    //USUARIOS
+
+});
