@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\TipoUsuario;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TipoUsuarioController extends Controller
 {
@@ -13,7 +16,8 @@ class TipoUsuarioController extends Controller
      */
     public function index()
     {
-        
+        $tipo_usuarios =DB::table('tipousuario')->get();
+        return view('usuario/tipo_usuario/index', compact('tipo_usuarios'));
     }
 
     /**
@@ -34,7 +38,13 @@ class TipoUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipo_usuario = new TipoUsuario();
+        
+        $tipo_usuario->descripcion = $request->descripcion;
+        $tipo_usuario->estado = "Activo";
+        $tipo_usuario->save();
+
+        return redirect('/tipo_usuario')->with('success', 'Registro guardado exitosamente');
     }
 
     /**

@@ -10,7 +10,8 @@ class TipoUsuario extends Model
     //PK
     protected $primary_key = 'idTipoUsuario';
     //Atributos
-    protected $attributes = [
+    protected $fillable = [
+            'id',
             'descripcion',
             'estado'
     ];
