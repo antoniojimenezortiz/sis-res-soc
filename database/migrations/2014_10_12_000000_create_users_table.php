@@ -17,15 +17,15 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('tipo_usuario');
+            $table->unsignedBigInteger('tipo_usuario');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            
 
-            //FK
             $table->foreign('tipo_usuario')->references('id')->on('tipousuario');
+            //$table->foreign('tipo_usuario')->references('id')->on('tipousuario');
+            
 
         });
     }
