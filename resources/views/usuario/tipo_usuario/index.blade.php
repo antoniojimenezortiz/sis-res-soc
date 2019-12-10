@@ -33,19 +33,17 @@
                         <td>{{$tipo_usuario->descripcion}}</td>
                           <td>{{$tipo_usuario->estado}}
                           </td>
-                        <td>a
+                        <td>
                             {{-- <a href=" #"><button data-toggle="modal" data-target="#modal-editar-usuario_{{$usuario->id }}" class="btn btn-block btn-info btn-sm" data-id="{{$usuario->id}}" data-usuario="{{ $usuario->username }}">Editar</button></a></td> --}}
-				        <td>
-					   {{-- <form action="{{action('UserController@eliminarUsuario',$usuario->id)}}" method="post">
-						@csrf
-						<input name="_method" type="hidden" value="DELETE">
-						<button class="btn btn-danger" type="submit">Eliminar</button>
-						</form>
+                            <form action="{{route('administrador.tipo_usuario.destroy',$tipo_usuario->id)}}" method="post">
+                              @csrf
+                              <input name="_method" type="hidden" value="delete">
+                              <button class="btn btn-danger" type="submit">Eliminar</button>
+                              </form>					   
                         </td>
 				        </tr>
-						@csrf
-				        <div class="modal fade" id="modal-editar-usuario_{{$usuario->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			            @include('usuario.modals.modal-editar-usuario')--}}
+{{-- 				        <div class="modal fade" id="modal-editar-usuario_{{$usuario->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			            @include('usuario.modals.modal-editar-usuario') --}}
                         @endforeach
                         </tbody>
                         <tfoot>
