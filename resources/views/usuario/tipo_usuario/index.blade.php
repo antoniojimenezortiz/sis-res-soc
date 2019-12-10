@@ -34,12 +34,17 @@
                           <td>{{$tipo_usuario->estado}}
                           </td>
                         <td>
-                            <a href=" #"><button data-toggle="modal" data-target="#modal-delete-tipo-usuario" class="btn btn-block btn-info btn-sm" 
-                            data-id="{{$tipo_usuario->id}}" data-usuario="{{ $tipo_usuario->descripcion }}">Eliminar</button></a></td>
-                            @include('usuario.tipo_usuario.modals.modal-delete',['id' => $tipo_usuario->descripcion])
+                          <a href=" #" class="deleteTypeUsuario">
+                            <button id="deleteTypeUsuario" data-toggle="modal" data-target="#modal-delete-tipo-usuario" 
+                              class="btn btn-block btn-info btn-sm" data-id="{{$tipo_usuario->id}}"
+                              >Eliminar
+                            </button>
+                          </a>
+                        </td>
+                            @include('usuario.tipo_usuario.modals.modal-delete',['id' => $tipo_usuario->id])
                         </td>
                         
-                        <td>
+                        <td>  
                         
 					   {{-- <form action="{{route('administrador.tipo_usuario.delete),$usuario->id)}}" method="post">
 						@csrf
@@ -66,4 +71,12 @@
                   </div>
     </section>
       <!-- /.content -->
+      
 @endsection
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).on("click","#deleteTypeUsuario", function(){
+          var ids = $(this).attr('data-id');;
+          console.log(ids);
+        })
+</script>
