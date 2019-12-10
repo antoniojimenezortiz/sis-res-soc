@@ -15,7 +15,7 @@
                         </div> 
                       </div>
                             @include('usuario.tipo_usuario.modals.modal-store')
-
+                            
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -34,12 +34,27 @@
                           <td>{{$tipo_usuario->estado}}
                           </td>
                         <td>
+<<<<<<< HEAD
                             {{-- <a href=" #"><button data-toggle="modal" data-target="#modal-editar-usuario_{{$usuario->id }}" class="btn btn-block btn-info btn-sm" data-id="{{$usuario->id}}" data-usuario="{{ $usuario->username }}">Editar</button></a></td> --}}
                             <form action="{{route('administrador.tipo_usuario.destroy',$tipo_usuario->id)}}" method="post">
                               @csrf
                               <input name="_method" type="hidden" value="delete">
                               <button class="btn btn-danger" type="submit">Eliminar</button>
                               </form>					   
+=======
+                            <a href=" #"><button data-toggle="modal" data-target="#modal-delete-tipo-usuario" class="btn btn-block btn-info btn-sm" 
+                            data-id="{{$tipo_usuario->id}}" data-usuario="{{ $tipo_usuario->descripcion }}">Eliminar</button></a></td>
+                            @include('usuario.tipo_usuario.modals.modal-delete',['id' => $tipo_usuario->descripcion])
+                        </td>
+                        
+                        <td>
+                        
+					   {{-- <form action="{{route('administrador.tipo_usuario.delete),$usuario->id)}}" method="post">
+						@csrf
+						<input name="_method" type="hidden" value="DELETE">
+						<button class="btn btn-danger" type="submit">Eliminar</button>
+						</form>
+>>>>>>> 9ab84d9e2ee71ea4498783c55ba11c7a7154b76b
                         </td>
 				        </tr>
 {{-- 				        <div class="modal fade" id="modal-editar-usuario_{{$usuario->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
