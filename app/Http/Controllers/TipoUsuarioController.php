@@ -89,6 +89,11 @@ class TipoUsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tipo_usuario = new TipoUsuario();
+        $tipo_ususario = TipoUsuario::find($id);
+        $tipo_usuario->estado = 'inactivo';
+        $tipo_usuario->save();
+        return redirect('/tipo_usuario')->with('success', 'Registro guardado exitosamente');
+
     }
 }

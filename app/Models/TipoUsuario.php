@@ -11,7 +11,6 @@ class TipoUsuario extends Model
     protected $primary_key = 'idTipoUsuario';
     //Atributos
     protected $fillable = [
-            'id',
             'descripcion',
             'estado'
     ];
