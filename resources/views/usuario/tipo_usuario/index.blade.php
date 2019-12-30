@@ -30,17 +30,18 @@
                         <tbody>
                         @foreach ($tipo_usuarios as $tipo_usuario)
                         <tr>
-                        <td>{{$tipo_usuario->descripcion}}</td>
-                          <td>{{$tipo_usuario->estado}}
-                          </td>
-                        <td>
-                            {{-- <a href=" #"><button data-toggle="modal" data-target="#modal-editar-usuario_{{$usuario->id }}" class="btn btn-block btn-info btn-sm" data-id="{{$usuario->id}}" data-usuario="{{ $usuario->username }}">Editar</button></a></td> --}}
+                          <td>{{$tipo_usuario->descripcion}}</td>
+                          <td>{{$tipo_usuario->estado}}</td>
+                        <td class="row"> 
+                            <a href=" #"><button data-toggle="modal" data-target="#modal-edit-tipo-usuario-{{$tipo_usuario->id}}" class="btn btn-info ">Editar</button></a>
+                              @include('usuario.tipo_usuario.modals.modal-edit')
+                            
                             <form action="{{route('administrador.tipo_usuario.destroy',$tipo_usuario->id)}}" method="post">
                               @csrf
                               <button class="btn btn-danger" type="submit">Eliminar</button>
-                              </form>					   
+                            </form>					   
                         </td>
-				        </tr>
+				                </tr>
 {{-- 				        <div class="modal fade" id="modal-editar-usuario_{{$usuario->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			            @include('usuario.modals.modal-editar-usuario') --}}
                         @endforeach

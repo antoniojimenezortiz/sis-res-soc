@@ -16,7 +16,7 @@ class TipoUsuarioController extends Controller
      */
     public function index()
     {
-        $tipo_usuarios =DB::table('tipousuario')->get();
+        $tipo_usuarios =TipoUsuario::where('estado','activo')->get();
         return view('usuario/tipo_usuario/index', compact('tipo_usuarios'));
     }
 
@@ -76,9 +76,12 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $tipo_usuario = TipoUsuario::find($request->id);
+        $tipo_usuario->descripcion = $request->descripcion;
+        $tipo_usuario->save();
+        return redirect('/tipo_usuario')->with('success', 'Registro actualizado exitosamente');
     }
 
     /**
@@ -89,11 +92,10 @@ class TipoUsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $tipo_usuario = new TipoUsuario();
-        $tipo_ususario = TipoUsuario::find($id);
+        $tipo_usuario = TipoUsuario::find($id);
         $tipo_usuario->estado = 'inactivo';
         $tipo_usuario->save();
-        return redirect('/tipo_usuario')->with('success', 'Registro guardado exitosamente');
+        return redirect('/tipo_usuario')->with('success', 'Registro eliminado exitosamente');
 
     }
 }
