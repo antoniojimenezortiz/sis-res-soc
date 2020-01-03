@@ -29,5 +29,10 @@ Route::group(['middleware' => ['auth']],function(){
     Route::post('/tipo_usuario_update', ['as'=>'administrador.tipo_usuario.update','uses'=>'TipoUsuarioController@update']);
     Route::post('/tipo_usuario_delete/{id}', ['as'=>'administrador.tipo_usuario.destroy','uses'=>'TipoUsuarioController@destroy']);
     //USUARIOS
-
+    Route::get('/usuario', ['as'=>'administrador.usuario','uses'=>'UsersController@index']);
+    Route::post('/usuario_store', ['as'=>'administrador.usuario.store','uses'=>'UsersController@store']);
+    Route::get('/usuario_edit', ['as'=>'administrador.usuario.edit','uses'=>'UsersController@edit']);
+    Route::post('/usuario_update', ['as'=>'administrador.usuario.update','uses'=>'UsersController@update']);
+    Route::post('/usuario_delete/{id}', ['as'=>'administrador.usuario.destroy','uses'=>'UsersController@destroy']);
+ 
 });

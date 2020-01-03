@@ -11,9 +11,9 @@
         <div class="modal-body">
             <div class="box-body">
                 <div class="form-group">
-                        <label for="inputDescripcion">Descripción</label>
+                        <label for="inputDescripcion">Id:</label>
                             <input type="text" class="form-control" id="id" name="id"
-                            value="{{$tipo_usuario->id}}" enabled="false">
+                            value="{{$tipo_usuario->id}}" readonly>
                         <label for="inputDescripcion">Descripción</label>
                             <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese descripción" 
                             value="{{$tipo_usuario->descripcion}}">

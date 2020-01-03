@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <section class="content-header">
-    <h1>Lista de Tipos de usuario</h1>
+    <h1>Lista Usuarios</h1>
     </section>
       
       <!-- Main content -->
@@ -11,10 +11,10 @@
                       <div class="row">
                         <div class="col-md-4"></div>  
                        <div class="col-md-4">
-                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-store-tipo-usuario">Registrar</button> 
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-store-usuario">Registrar</button> 
                         </div> 
                       </div>
-                            @include('usuario.tipo_usuario.modals.modal-store')
+                            @include('usuario.usuario.modals.modal-store')
                             
                     </div>
                     <!-- /.box-header -->
@@ -22,32 +22,40 @@
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                          <th>Descripción</th>
-                          <th>Estado</th>
+                          <th>Id</th>
+                          <th>Nombre</th>
+                          <th>Email</th>
+                          <th>Tipo de usuario</th>
                           <th>Acciones</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($tipo_usuarios as $tipo_usuario)
+                        @foreach ($usuarios as $usuario)
                         <tr>
-                          <td>{{$tipo_usuario->descripcion}}</td>
-                          <td>{{$tipo_usuario->estado}}</td>
+                          <td>{{$usuario->id}}</td>
+                          <td>{{$usuario->name}}</td>
+                          <td>{{$usuario->email}}</td>
+                          <td>{{$usuario->tipo_usuario}}</td>
+
                         <td class="row"> 
-                            <a href=" #"><button data-toggle="modal" data-target="#modal-edit-tipo-usuario-{{$tipo_usuario->id}}" class="btn btn-info ">Editar</button></a>
-                              @include('usuario.tipo_usuario.modals.modal-edit')
+                            <a href=" #"><button data-toggle="modal" data-target="#modal-edit-usuario-{{$usuario->id}}" class="btn btn-info ">Editar</button></a>
+                             @include('usuario.usuario.modals.modal-edit')
                             
-                            <form action="{{route('administrador.tipo_usuario.destroy',$tipo_usuario->id)}}" method="post">
+                            <form action="{{route('administrador.usuario.destroy',$usuario->id)}}" method="post">
                               @csrf
                               <button class="btn btn-danger" type="submit">Eliminar</button>
-                            </form>					   
+                            </form>				   
                         </td>
 				                </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
-                          <th>Descripción</th>
-                          <th>Estado</th>
+                          <th>Id</th>
+                          <th>Nombre</th>
+                          <th>Email</th>
+                          <th>Tipo usuario</th>
                           <th>Acciones</th>
                         </tr>
                         </tfoot>
