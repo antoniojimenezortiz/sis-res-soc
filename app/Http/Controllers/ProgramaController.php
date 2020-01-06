@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Programa;
 use Illuminate\Http\Request;
-use App\Models\Facultad;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 
-
-class FacultadController extends Controller
+class ProgramaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class FacultadController extends Controller
      */
     public function index()
     {
-        $facultades =Facultad::where('estado','activo')->get();
-        return view('facultad/index', compact('facultades'));
+        //
     }
 
     /**
@@ -39,24 +35,16 @@ class FacultadController extends Controller
      */
     public function store(Request $request)
     {
-        $facultad = new Facultad();
-
-        $facultad->nombre = $request->nombre;
-        $facultad->estado = 'activo';
-
-        $facultad->save();
-
-        return redirect('/facultad')->with('success', 'Registro guardado exitosamente');
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Programa $programa)
     {
         //
     }
@@ -64,10 +52,10 @@ class FacultadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Programa $programa)
     {
         //
     }
@@ -76,29 +64,22 @@ class FacultadController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Programa $programa)
     {
-        $facultad = Facultad::find($request->id);
-        $facultad->nombre = $request->nombre;
-        $facultad->save();
-        return redirect('/facultad')->with('success', 'Registro actualizado exitosamente');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Programa $programa)
     {
-        $facultad = Facultad::find($id);
-        $facultad->estado = 'inactivo';
-        $facultad->save();
-        return redirect('/facultad')->with('success', 'Registro eliminado exitosamente');
-
+        //
     }
 }

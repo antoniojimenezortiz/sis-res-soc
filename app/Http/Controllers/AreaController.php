@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Facultad;
+use App\Models\Area;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-
-class FacultadController extends Controller
+class AreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,10 @@ class FacultadController extends Controller
      */
     public function index()
     {
-        $facultades =Facultad::where('estado','activo')->get();
-        return view('facultad/index', compact('facultades'));
+
+        $areas =Area::where('estado','activo')->get();
+        return view('area/index', compact('areas'));
+
     }
 
     /**
@@ -28,7 +29,12 @@ class FacultadController extends Controller
      */
     public function create()
     {
-        //
+        $area = new Area();
+
+        $area->nombre = $request->nombre;
+        $area->estado = 'activo';
+
+        $area->save();
     }
 
     /**
@@ -39,24 +45,16 @@ class FacultadController extends Controller
      */
     public function store(Request $request)
     {
-        $facultad = new Facultad();
-
-        $facultad->nombre = $request->nombre;
-        $facultad->estado = 'activo';
-
-        $facultad->save();
-
-        return redirect('/facultad')->with('success', 'Registro guardado exitosamente');
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Area $area)
     {
         //
     }
@@ -64,10 +62,10 @@ class FacultadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Area $area)
     {
         //
     }
@@ -76,29 +74,29 @@ class FacultadController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $facultad = Facultad::find($request->id);
-        $facultad->nombre = $request->nombre;
-        $facultad->save();
-        return redirect('/facultad')->with('success', 'Registro actualizado exitosamente');
+        $area = Area::find($request->id);
+        $area->descripcion = $request->descripcion;
+        $area->save();
+        return redirect('/area')->with('success', 'Registro actualizado exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Area $area)
     {
-        $facultad = Facultad::find($id);
-        $facultad->estado = 'inactivo';
-        $facultad->save();
-        return redirect('/facultad')->with('success', 'Registro eliminado exitosamente');
+        $area = Area::find($id);
+        $area->estado = 'inactivo';
+        $area->save();
+        return redirect('/area')->with('success', 'Registro eliminado exitosamente');
 
     }
 }

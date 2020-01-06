@@ -9,9 +9,9 @@ class Facultad extends Model
     //Tabla en base de datos
     protected $table = 'facultad';
     //PK
-    protected $primary_key = 'idFacultad';
+    protected $primary_key = 'id';
     //Atributos
-    protected $attributes = [
+    protected $fillable = [
             'nombre',
             'estado'
     ];

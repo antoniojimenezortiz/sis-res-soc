@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cargo extends Model
-{
-    protected $table = 'cargos';
+class Area extends Model
+{   
+     //Tabla en base de datos
+    protected $table = 'areas';
     //PK
     protected $primary_key = 'id';
     //Atributos
-    protected $attributes = [
-            'nombre',
+    protected $fillable = [
+            'descripcion',
             'estado'
     ];
 }

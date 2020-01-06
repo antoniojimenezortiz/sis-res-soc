@@ -35,4 +35,18 @@ Route::group(['middleware' => ['auth']],function(){
     Route::post('/usuario_update', ['as'=>'administrador.usuario.update','uses'=>'UsersController@update']);
     Route::post('/usuario_delete/{id}', ['as'=>'administrador.usuario.destroy','uses'=>'UsersController@destroy']);
  
+    //FACULTADES
+    Route::get('/facultad', ['as'=>'administrador.facultad','uses'=>'FacultadController@index']);
+    Route::post('/facultad_store', ['as'=>'administrador.facultad.store','uses'=>'FacultadController@store']);
+    Route::get('/facultad_edit', ['as'=>'administrador.facultad.edit','uses'=>'FacultadController@edit']);
+    Route::post('/facultad_update', ['as'=>'administrador.facultad.update','uses'=>'FacultadController@update']);
+    Route::post('/facultad_delete/{id}', ['as'=>'administrador.facultad.destroy','uses'=>'FacultadController@destroy']);
+ 
+     //AREA
+     Route::get('/area', ['as'=>'administrador.area','uses'=>'AreaController@index']);
+     Route::post('/area_store', ['as'=>'administrador.area.store','uses'=>'AreaController@store']);
+     Route::get('/area_edit', ['as'=>'administrador.area.edit','uses'=>'AreaController@edit']);
+     Route::post('/area_update', ['as'=>'administrador.area.update','uses'=>'AreaController@update']);
+     Route::post('/area/{id}', ['as'=>'administrador.area.destroy','uses'=>'AreaController@destroy']);
+  
 });
