@@ -48,5 +48,12 @@ Route::group(['middleware' => ['auth']],function(){
      Route::get('/area_edit', ['as'=>'administrador.area.edit','uses'=>'AreaController@edit']);
      Route::post('/area_update', ['as'=>'administrador.area.update','uses'=>'AreaController@update']);
      Route::post('/area/{id}', ['as'=>'administrador.area.destroy','uses'=>'AreaController@destroy']);
+
+     //PROGRAMA
+     Route::get('/programa', ['as'=>'administrador.programa','uses'=>'ProgramaController@index']);
+     Route::post('/programa_store', ['as'=>'administrador.programa.store','uses'=>'ProgramaController@store']);
+     Route::get('/programa_edit', ['as'=>'administrador.programa.edit','uses'=>'ProgramaController@edit']);
+     Route::post('/programa_update', ['as'=>'administrador.programa.update','uses'=>'ProgramaController@update']);
+     Route::post('/programa/{id}', ['as'=>'administrador.programa.destroy','uses'=>'ProgramaController@destroy']);
   
 });

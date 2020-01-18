@@ -123,7 +123,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('administrador.area')}}"><i class="fa fa-circle-o"></i> Áreas</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Programas</a></li>
+            <li><a href="{{route('administrador.programa')}}"><i class="fa fa-circle-o"></i> Programas</a></li>
 
           </ul>
         </li>

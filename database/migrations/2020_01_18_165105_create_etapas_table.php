@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProgramasTable extends Migration
+class CreateEtapasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateProgramasTable extends Migration
      */
     public function up()
     {
-        Schema::create('programas', function (Blueprint $table) {
+        Schema::create('etapas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('anio');
+            $table->string('nombre');
+            $table->integer('area');
+            $table->integer('programa');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->string('estado');
             $table->timestamps();
         });
@@ -28,6 +32,6 @@ class CreateProgramasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programas');
+        Schema::dropIfExists('etapas');
     }
 }

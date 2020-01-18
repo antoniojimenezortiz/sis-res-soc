@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Programa extends Model
+class etapa extends Model
 {
-    protected $table = 'programas';
+    protected $table = 'etapa';
     //PK
     protected $primary_key = 'id';
     //Atributos
     protected $fillable = [
             'nombre',
-            'anio',
-            'estado'
+            'area',
+            'fecha_inicio',
+            'fecha_fin',
+            'estado',
+            'programa'
     ];
 }

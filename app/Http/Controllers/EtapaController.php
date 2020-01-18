@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Programa;
+use App\Models\etapa;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-
-class ProgramaController extends Controller
+class EtapaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class ProgramaController extends Controller
      */
     public function index()
     {
-        $programas =Programa::where('estado','activo')->get();
-        return view('programa/index', compact('programas'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class ProgramaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Programa  $programa
+     * @param  \App\Models\etapa  $etapa
      * @return \Illuminate\Http\Response
      */
-    public function show(Programa $programa)
+    public function show(etapa $etapa)
     {
         //
     }
@@ -56,10 +52,10 @@ class ProgramaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Programa  $programa
+     * @param  \App\Models\etapa  $etapa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Programa $programa)
+    public function edit(etapa $etapa)
     {
         //
     }
@@ -68,10 +64,10 @@ class ProgramaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Programa  $programa
+     * @param  \App\Models\etapa  $etapa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Programa $programa)
+    public function update(Request $request, etapa $etapa)
     {
         //
     }
@@ -79,10 +75,10 @@ class ProgramaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Programa  $programa
+     * @param  \App\Models\etapa  $etapa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Programa $programa)
+    public function destroy(etapa $etapa)
     {
         //
     }

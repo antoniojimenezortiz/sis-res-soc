@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <section class="content-header">
-    <h1>Lista de Programas</h1>
+    <h1>Programas</h1>
     </section>
       
       <!-- Main content -->
@@ -14,7 +14,7 @@
                             <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-store-programa">Registrar</button> 
                         </div> 
                       </div>
-                            @include('programa.modals.modal-store')
+                            {{-- @include('programa.modals.modal-store') --}}
                             
                     </div>
                     <!-- /.box-header -->
@@ -22,24 +22,24 @@
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                          <th>Nombre</th>
+                          <th>Año</th>
                           <th>Estado</th>
                           <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($facultades as $facultad)
+                        @foreach ($programas as $programa)
                         <tr>
-                          <td>{{$facultad->nombre}}</td>
-                          <td>{{$facultad->estado}}</td>
+                          <td>{{$programa->anio}}</td>
+                          <td>{{$programa->estado}}</td>
                         <td class="row"> 
-                             <a href=" #"><button data-toggle="modal" data-target="#modal-edit-facultad-{{$facultad->id}}" class="btn btn-info ">Editar</button></a>
-                              @include('facultad.modals.modal-edit')
+{{--                              <a href=" #"><button data-toggle="modal" data-target="#modal-edit-programa-{{$programa->id}}" class="btn btn-info ">Editar</button></a>
+ --}} {{--                             @include('facultad.modals.modal-edit')
                             
                             <form action="{{route('administrador.facultad.destroy',$facultad->id)}}" method="post">
                               @csrf
                               <button class="btn btn-danger" type="submit">Eliminar</button>
-                            </form>			    
+                            </form>	 --}}		    
                         </td>
 				                </tr>
                         @endforeach

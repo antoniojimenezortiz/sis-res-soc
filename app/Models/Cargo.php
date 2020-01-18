@@ -10,7 +10,7 @@ class Cargo extends Model
     //PK
     protected $primary_key = 'id';
     //Atributos
-    protected $attributes = [
+    protected $fillable = [
             'nombre',
             'estado'
     ];
