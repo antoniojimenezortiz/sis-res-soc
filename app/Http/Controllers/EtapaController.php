@@ -12,9 +12,10 @@ class EtapaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($programa)
     {
-        //
+        $etapas = Etapa::where('programa',$programa);
+        return $etapas;
     }
 
     /**

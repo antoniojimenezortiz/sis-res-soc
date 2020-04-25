@@ -56,4 +56,7 @@ Route::group(['middleware' => ['auth']],function(){
      Route::post('/programa_update', ['as'=>'administrador.programa.update','uses'=>'ProgramaController@update']);
      Route::post('/programa/{id}', ['as'=>'administrador.programa.destroy','uses'=>'ProgramaController@destroy']);
   
+
+    //ETAPA 
+    Route::resource('etapa', 'EtapaController');
 });

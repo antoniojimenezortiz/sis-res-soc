@@ -33,8 +33,10 @@
                           <td>{{$programa->anio}}</td>
                           <td>{{$programa->estado}}</td>
                         <td class="row"> 
+                          <button data-toggle="modal" data-target="#modal-detail-programa-{{$programa->id}}" class="btn btn-info">Detalles</button>
+                          @include('programa.modals.modal-detail')
 {{--                              <a href=" #"><button data-toggle="modal" data-target="#modal-edit-programa-{{$programa->id}}" class="btn btn-info ">Editar</button></a>
- --}} {{--                             @include('facultad.modals.modal-edit')
+ --}} {{--                             
                             
                             <form action="{{route('administrador.facultad.destroy',$facultad->id)}}" method="post">
                               @csrf
@@ -57,4 +59,8 @@
                   </div>
     </section>
       <!-- /.content -->
+ 
+ <script type="text/javascript">
+    
+</script>
 @endsection
