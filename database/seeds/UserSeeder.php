@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name'=> 'Antonio Jimenez',
-            'email' => 'amjimenezortiz@gmail.com',
+            'email' => 'antonio@gmail.com',
             'tipo_usuario' => '1',
             'password' => Hash::make('12345'),
             'estado' => 'Activo',
@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name'=> 'Randy Huaccha',
-            'email' => 'randyhuacchalucano@gmail.com',
+            'email' => 'randy@gmail.com',
             'tipo_usuario' => '2',
             'password' => Hash::make('12345'),
             'estado' => 'Activo',
