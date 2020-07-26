@@ -16,22 +16,6 @@ class ProgramaSeeder extends Seeder
             'estado' => 'Activo',
         ]);
 
-        DB::table('etapas')->insert([
-            'nombre'=>'Presentación',
-            'area' => '1',
-            'programa' => '1',
-            'estado' => 'activo',
-            'fecha_inicio' => '2020-04-15',
-            'fecha_fin' => '2020-04-15',
-        ]);
 
-        DB::table('etapas')->insert([
-            'nombre'=>'Revisión y aprobación',
-            'area' => '2',
-            'programa' => '1',
-            'estado' => 'activo',
-            'fecha_inicio' => '2020-04-16',
-            'fecha_fin' => '2020-04-22',
-        ]);
     }
 }

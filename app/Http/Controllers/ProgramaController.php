@@ -21,6 +21,7 @@ class ProgramaController extends Controller
         return view('programa/index', compact('programas'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

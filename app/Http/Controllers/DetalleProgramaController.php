@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\etapa;
+use App\Models\DetallePrograma;
+use App\Models\Programa;
+
 use Illuminate\Http\Request;
 
-class EtapaController extends Controller
+class DetalleProgramaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($programa)
+    public function index(Request $request)
     {
-        $etapas = Etapa::where('programa',$programa);
-        return $etapas;
+        $programa = Programa::find($request->id);
+        $detalle_programa =DetallePrograma::join('Programas', "detalleprogramas.programa","=","programa.id")
+                        ->get();
+        return redirect('/programa')->with('success', 'Registro actualizado exitosamente',compact('detalle_programa'));
+
     }
 
     /**
@@ -42,10 +47,10 @@ class EtapaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\etapa  $etapa
+     * @param  \App\DetallePrograma  $detallePrograma
      * @return \Illuminate\Http\Response
      */
-    public function show(etapa $etapa)
+    public function show(DetallePrograma $detallePrograma)
     {
         //
     }
@@ -53,10 +58,10 @@ class EtapaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\etapa  $etapa
+     * @param  \App\DetallePrograma  $detallePrograma
      * @return \Illuminate\Http\Response
      */
-    public function edit(etapa $etapa)
+    public function edit(DetallePrograma $detallePrograma)
     {
         //
     }
@@ -65,10 +70,10 @@ class EtapaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\etapa  $etapa
+     * @param  \App\DetallePrograma  $detallePrograma
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, etapa $etapa)
+    public function update(Request $request, DetallePrograma $detallePrograma)
     {
         //
     }
@@ -76,10 +81,10 @@ class EtapaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\etapa  $etapa
+     * @param  \App\DetallePrograma  $detallePrograma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(etapa $etapa)
+    public function destroy(DetallePrograma $detallePrograma)
     {
         //
     }
